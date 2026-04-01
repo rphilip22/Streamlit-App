@@ -7,7 +7,7 @@ Personal Finance Tracker
 Reuben Philip
  
 ## App Description
-This app will help users manage their personal finances better by obtaining visuals and insights from their financial data.
+This app will help users manage their personal finances better by obtaining visuals and insights from their financial data, especially if the user holds multiple bank accounts on multiple platforms.
  
 ## Intended Users
 This app is intended for everyone interested in managing and obtaining better insights into their personal finances.
