@@ -10,7 +10,7 @@ Reuben Philip
 This app will help users manage their personal finances better by obtaining visuals and insights from their financial data.
  
 ## Intended Users
-This app is intended for everyone interested in managing and getting better insights into their personal finances.
+This app is intended for everyone interested in managing and obtaining better insights into their personal finances.
  
 ## Planned Features
 1. Add a transaction (income or expense)
