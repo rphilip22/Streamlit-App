@@ -21,7 +21,7 @@ if st.button("Add Expense"):
     st.write(f"You spent ${amount} on {category}.")
 
     # Simple conditional logic
-    if amount > 100:
+    if amount > 50:
         st.warning("That is a high expense! Try to save more.")
     else:
         st.success("Expense recorded successfully!")
