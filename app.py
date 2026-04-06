@@ -12,7 +12,7 @@ amount = st.number_input("Enter expense amount ($):", min_value=0.0, step=1.0)
 # Input 2: Category selection
 category = st.selectbox(
     "Select expense category:",
-    ["Food", "Transport", "Entertainment", "Other"]
+    ["Education", "Housing", "Food", "Transport", "Entertainment", "Subscriptions", "Miscellaneous"]
 )
 
 # Button to process input
