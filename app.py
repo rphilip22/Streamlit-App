@@ -26,10 +26,11 @@ else:
     )
 
 # Button
-if st.button("Add Transaction"):
-    st.write(f"{transaction_type} of ${amount} recorded under {category}.")
+if amount >0:
+    if st.button("Add Transaction"):
+        st.write(f"{transaction_type} of ${amount} recorded under {category}.")
 
-    if transaction_type == "Expense" and amount > 100:
-        st.warning("⚠️ High expense!")
-    else:
-        st.success("✅ Transaction recorded!")
+        if transaction_type == "Expense" and amount > 100:
+            st.warning("⚠️ High expense!")
+        else:
+            st.success("✅ Transaction recorded!")
