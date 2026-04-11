@@ -66,7 +66,19 @@ except:
 # Aggregate Calculations
 income = data[data["Type"] == "Income"]["Amount"].sum()
 expenses = data[data["Type"] == "Expense"]["Amount"].sum()
+balance = income - expenses
 
-st.write(f"Total Income: ${income}")
-st.write(f"Total Expenses: ${expenses}")
-st.write(f"Balance: ${income - expenses}")
+# Sidebar display
+st.sidebar.header("📊 Summary")
+
+st.sidebar.metric("Income", f"${income}")
+st.sidebar.metric("Expenses", f"${expenses}")
+st.sidebar.metric("Balance", f"${balance}")
+
+# Color-coded balance message
+if balance > 0:
+    st.sidebar.success("🟢 You are saving money!")
+elif balance < 0:
+    st.sidebar.error("🔴 You are overspending!")
+else:
+    st.sidebar.warning("🟡 You are breaking even.")
