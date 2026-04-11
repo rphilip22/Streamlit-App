@@ -1,8 +1,20 @@
 import streamlit as st
+import csv
+import os
+import pandas as pd
 
 st.title("Budget Tracker")
 
 st.write("Track your income and expenses easily.")
+
+# File name
+file_name = "data.csv"
+
+# Create file with header if it doesn't exist
+if not os.path.exists(file_name):
+    with open(file_name, mode="w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["Type", "Amount", "Category"])
 
 # Input 1: Transaction type
 transaction_type = st.radio(
@@ -22,7 +34,7 @@ if transaction_type == "Income":
 else:
     category = st.selectbox(
         "Select category:",
-        ["Education","Food", "Transport", "Entertainment", "Other"]
+        ["Education", "Food", "Transport", "Entertainment", "Other"]
     )
 
 # Button
