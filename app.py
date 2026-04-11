@@ -16,7 +16,7 @@ if not os.path.exists(file_name):
         writer = csv.writer(file)
         writer.writerow(["Type", "Amount", "Category"])
 
-# Input 1: Transaction type
+# Input 1: Transaction Type
 transaction_type = st.radio(
     "Select transaction type:",
     ["Income", "Expense"]
@@ -37,7 +37,7 @@ else:
         ["Education", "Food", "Transport", "Entertainment", "Other"]
     )
 
-# Button
+# Transaction Registration
 if st.button("Add Transaction"):
 
     if amount == 0:
