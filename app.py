@@ -83,10 +83,10 @@ elif page == "Analytics":
         income = data[data["Type"] == "Income"]["Amount"].sum()
         expenses = data[data["Type"] == "Expense"]["Amount"].sum()
 
-        st.subheader("💰 Income vs Expenses")
+        st.subheader("Income vs Expenses")
         st.bar_chart({"Income": income, "Expenses": expenses})
 
-        st.subheader("🥧 Expense Breakdown")
+        st.subheader("Expense Breakdown")
 
         expense_data = data[data["Type"] == "Expense"]
 
