@@ -4,7 +4,7 @@ from data_utils import load_data, save_transaction
 st.set_page_config(page_title="Budget Tracker", layout="wide")
 
 # --- CENTERED TITLE ---
-st.markdown("<h1 style='text-align: center;'>💰 Budget Tracker</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Budget Tracker</h1>", unsafe_allow_html=True)
 
 # --- PAGE SELECTOR (TOP) ---
 page = st.radio(
