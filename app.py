@@ -1,27 +1,29 @@
 import streamlit as st
 
-# Title
-st.title("Personal Finance Tracker")
+st.title("Student Budget Tracker")
 
-# Description
-st.write("This app helps students track their daily expenses and understand their spending habits.")
+st.write("Track your income and expenses easily.")
 
-# Input 1: Expense Amount Input
-amount = st.number_input("Enter expense amount ($):", min_value=0.0, step=1.0)
-
-# Input 2: Category Selection
-category = st.selectbox(
-    "Select expense category:",
-    ["Education", "Housing", "Food", "Transport", "Entertainment", "Subscriptions", "Miscellaneous"]
+# Input 1: Transaction type
+transaction_type = st.radio(
+    "Select transaction type:",
+    ["Income", "Expense"]
 )
 
-# Input Processing and Output Production
-if st.button("Add Expense"):
-    # Dynamic output
-    st.write(f"You spent ${amount} on {category}.")
+# Input 2: Amount
+amount = st.number_input("Enter amount ($):", min_value=0.0, step=1.0)
 
-    # Simple Conditional Logic
-    if amount > 50:
-        st.warning("That is a high expense! Try to save more.")
+# Input 3: Category
+category = st.selectbox(
+    "Select category:",
+    ["Salary", "Food", "Transport", "Entertainment", "Other"]
+)
+
+# Button
+if st.button("Add Transaction"):
+    st.write(f"{transaction_type} of ${amount} recorded under {category}.")
+
+    if transaction_type == "Expense" and amount > 100:
+        st.warning("⚠️ High expense!")
     else:
-        st.success("Expense recorded successfully!")
+        st.success("✅ Transaction recorded!")
