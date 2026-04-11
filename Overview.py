@@ -3,50 +3,95 @@ from data_utils import load_data, save_transaction
 
 st.set_page_config(page_title="Budget Tracker", layout="wide")
 
-st.title("💰 Budget Tracker")
-st.write("Track your income and expenses easily.")
+# --- CENTERED TITLE ---
+st.markdown("<h1 style='text-align: center;'>💰 Budget Tracker</h1>", unsafe_allow_html=True)
+
+# --- PAGE SELECTOR (TOP) ---
+page = st.radio(
+    "",
+    ["Overview", "Transactions", "Analytics"],
+    horizontal=True
+)
+
+# --- PAGE TITLE ---
+st.markdown(f"<h3 style='text-align: center;'>{page}</h3>", unsafe_allow_html=True)
 
 # Load data
 data = load_data()
 
-# Calculate stats
-income = data[data["Type"] == "Income"]["Amount"].sum()
-expenses = data[data["Type"] == "Expense"]["Amount"].sum()
-balance = income - expenses
+# =========================
+# PAGE 1: OVERVIEW
+# =========================
+if page == "Overview":
 
-# Sidebar summary
-st.sidebar.header("📊 Summary")
-st.sidebar.metric("Income", f"${income:.2f}")
-st.sidebar.metric("Expenses", f"${expenses:.2f}")
-st.sidebar.metric("Balance", f"${balance:.2f}")
+    income = data[data["Type"] == "Income"]["Amount"].sum()
+    expenses = data[data["Type"] == "Expense"]["Amount"].sum()
+    balance = income - expenses
 
-# Status message
-if balance > 0:
-    st.sidebar.success("🟢 You're saving money")
-elif balance < 0:
-    st.sidebar.error("🔴 You're overspending")
-else:
-    st.sidebar.warning("🟡 You're breaking even")
+    st.subheader("📊 Summary")
 
-# Input section
-st.subheader("Add Transaction")
+    col1, col2, col3 = st.columns(3)
 
-transaction_type = st.radio("Type:", ["Income", "Expense"])
-amount = st.number_input("Amount ($):", min_value=0.0, step=1.0)
+    col1.metric("Income", f"${income:.2f}")
+    col2.metric("Expenses", f"${expenses:.2f}")
+    col3.metric("Balance", f"${balance:.2f}")
 
-if transaction_type == "Income":
-    category = st.selectbox("Category:", ["Salary", "Gift", "Other"])
-else:
-    category = st.selectbox("Category:", ["Food", "Transport", "Entertainment", "Other"])
-
-# Save button
-if st.button("Add Transaction"):
-    if amount == 0:
-        st.error("Please enter a valid amount.")
+    # Status message
+    if balance > 0:
+        st.success("🟢 You're saving money")
+    elif balance < 0:
+        st.error("🔴 You're overspending")
     else:
-        save_transaction(transaction_type, amount, category)
-        st.success("✅ Transaction added!")
+        st.warning("🟡 You're breaking even")
 
-# Optional: show recent data
-st.subheader("Recent Transactions")
-st.dataframe(data.tail(5))
+    st.subheader("➕ Add Transaction")
+
+    transaction_type = st.radio("Type:", ["Income", "Expense"])
+    amount = st.number_input("Amount ($):", min_value=0.0, step=1.0)
+
+    if transaction_type == "Income":
+        category = st.selectbox("Category:", ["Salary", "Gift", "Other"])
+    else:
+        category = st.selectbox("Category:", ["Food", "Transport", "Entertainment", "Other"])
+
+    if st.button("Add Transaction"):
+        if amount == 0:
+            st.error("Please enter a valid amount.")
+        else:
+            save_transaction(transaction_type, amount, category)
+            st.success("✅ Transaction added!")
+
+# =========================
+# PAGE 2: TRANSACTIONS
+# =========================
+elif page == "Transactions":
+
+    if data.empty:
+        st.write("No transactions yet.")
+    else:
+        st.dataframe(data)
+        st.write(f"Total Transactions: {len(data)}")
+
+# =========================
+# PAGE 3: ANALYTICS
+# =========================
+elif page == "Analytics":
+
+    if data.empty:
+        st.write("No data available.")
+    else:
+        income = data[data["Type"] == "Income"]["Amount"].sum()
+        expenses = data[data["Type"] == "Expense"]["Amount"].sum()
+
+        st.subheader("💰 Income vs Expenses")
+        st.bar_chart({"Income": income, "Expenses": expenses})
+
+        st.subheader("🥧 Expense Breakdown")
+
+        expense_data = data[data["Type"] == "Expense"]
+
+        if not expense_data.empty:
+            category_totals = expense_data.groupby("Category")["Amount"].sum()
+            st.bar_chart(category_totals)
+        else:
+            st.write("No expense data yet.")
