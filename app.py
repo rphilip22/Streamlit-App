@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Student Budget Tracker")
+st.title("Budget Tracker")
 
 st.write("Track your income and expenses easily.")
 
@@ -14,10 +14,16 @@ transaction_type = st.radio(
 amount = st.number_input("Enter amount ($):", min_value=0.0, step=1.0)
 
 # Input 3: Category
-category = st.selectbox(
-    "Select category:",
-    ["Salary", "Food", "Transport", "Entertainment", "Other"]
-)
+if transaction_type == "Income":
+    category = st.selectbox(
+        "Select category:",
+        ["Salary", "Gift", "Other"]
+    )
+else:
+    category = st.selectbox(
+        "Select category:",
+        ["Education","Food", "Transport", "Entertainment", "Other"]
+    )
 
 # Button
 if st.button("Add Transaction"):
