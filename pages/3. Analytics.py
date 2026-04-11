@@ -3,7 +3,7 @@ from data_utils import load_data
 
 st.set_page_config(page_title="Analytics", layout="wide")
 
-st.title("📊 Financial Analytics")
+st.title("Financial Analytics")
 
 data = load_data()
 

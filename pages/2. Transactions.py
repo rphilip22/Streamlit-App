@@ -3,7 +3,7 @@ from data_utils import load_data
 
 st.set_page_config(page_title="Transactions", layout="wide")
 
-st.title("📜 Transaction History")
+st.title("Transaction History")
 
 data = load_data()
 

@@ -3,7 +3,7 @@ from data_utils import load_data, save_transaction
 
 st.set_page_config(page_title="Budget Tracker", layout="wide")
 
-st.title("💰 Budget Tracker - Overview")
+st.title("💰 Budget Tracker")
 st.write("Track your income and expenses easily.")
 
 # Load data
@@ -29,7 +29,7 @@ else:
     st.sidebar.warning("🟡 You're breaking even")
 
 # Input section
-st.subheader("➕ Add Transaction")
+st.subheader("Add Transaction")
 
 transaction_type = st.radio("Type:", ["Income", "Expense"])
 amount = st.number_input("Amount ($):", min_value=0.0, step=1.0)
@@ -48,5 +48,5 @@ if st.button("Add Transaction"):
         st.success("✅ Transaction added!")
 
 # Optional: show recent data
-st.subheader("📜 Recent Transactions")
+st.subheader("Recent Transactions")
 st.dataframe(data.tail(5))
