@@ -69,8 +69,8 @@ elif page == "Transactions":
     if data.empty:
         st.write("No transactions yet.")
     else:
-        st.dataframe(data)
         st.write(f"Total Transactions: {len(data)}")
+        st.dataframe(data)
 
 # ====================================================================================================
 # PAGE 3: ANALYTICS
