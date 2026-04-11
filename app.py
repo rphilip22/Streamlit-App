@@ -1,7 +1,7 @@
 import streamlit as st
 from data_utils import load_data, save_transaction
 
-st.set_page_config(page_title="Budget Tracker", layout="wide")
+st.set_page_config(page_title="Student Budget Tracker", layout="wide")
 
 # --- CENTERED TITLE ---
 st.markdown("<h1 style='text-align: center;'>Budget Tracker</h1>", unsafe_allow_html=True)
