@@ -49,7 +49,7 @@ if st.button("Add Transaction"):
             writer.writerow([transaction_type, amount, category])
 
         # Output
-        st.write(f"{transaction_type} of ${amount} recorded under {category}.")
+        st.write(f"{transaction_type} of ${amount:.2f} recorded under {category}.")
 
         if transaction_type == "Expense" and amount > 100:
             st.warning("⚠️ High expense!")
@@ -62,3 +62,11 @@ try:
     st.dataframe(data)
 except:
     st.write("No data yet.")
+
+# Aggregate Calculations
+income = data[data["Type"] == "Income"]["Amount"].sum()
+expenses = data[data["Type"] == "Expense"]["Amount"].sum()
+
+st.write(f"Total Income: ${income}")
+st.write(f"Total Expenses: ${expenses}")
+st.write(f"Balance: ${income - expenses}")
