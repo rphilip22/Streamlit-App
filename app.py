@@ -4,7 +4,7 @@ from data_utils import load_data, save_transaction
 st.set_page_config(page_title="Student Budget Tracker", layout="wide")
 
 # --- CENTERED TITLE ---
-st.markdown("<h1 style='text-align: center;'>Budget Tracker</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Student Budget Tracker</h1>", unsafe_allow_html=True)
 
 # --- PAGE SELECTOR (TOP) ---
 page = st.radio(
@@ -52,7 +52,7 @@ if page == "Overview":
     if transaction_type == "Income":
         category = st.selectbox("Category:", ["Salary", "Gift", "Other"])
     else:
-        category = st.selectbox("Category:", ["Food", "Transport", "Entertainment", "Other"])
+        category = st.selectbox("Category:", ["Education", "Food", "Transport", "Entertainment", "Other"])
 
     if st.button("Add Transaction"):
         if amount == 0:
