@@ -15,11 +15,11 @@ else:
     expenses = data[data["Type"] == "Expense"]["Amount"].sum()
 
     # Bar chart
-    st.subheader("💰 Income vs Expenses")
+    st.subheader("Income vs Expenses")
     st.bar_chart({"Income": income, "Expenses": expenses})
 
     # Expense breakdown
-    st.subheader("🥧 Expense Breakdown")
+    st.subheader("Expense Breakdown")
 
     expense_data = data[data["Type"] == "Expense"]
 
