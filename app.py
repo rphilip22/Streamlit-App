@@ -52,7 +52,7 @@ if page == "Overview":
     if transaction_type == "Income":
         category = st.selectbox("Category:", ["Salary", "Gift", "Other"])
     else:
-        category = st.selectbox("Category:", ["Education", "Food", "Transport", "Entertainment", "Other"])
+        category = st.selectbox("Category:", ["Education", "Food", "Subscriptions", "Transport", "Entertainment", "Other"])
 
     if st.button("Add Transaction"):
         if amount == 0:
