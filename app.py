@@ -26,11 +26,27 @@ else:
     )
 
 # Button
-if amount >0:
-    if st.button("Add Transaction"):
+if st.button("Add Transaction"):
+
+    if amount == 0:
+        st.error("Please enter a valid amount.")
+    else:
+        # Save to CSV
+        with open(file_name, mode="a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow([transaction_type, amount, category])
+
+        # Output
         st.write(f"{transaction_type} of ${amount} recorded under {category}.")
 
         if transaction_type == "Expense" and amount > 100:
             st.warning("⚠️ High expense!")
         else:
             st.success("✅ Transaction recorded!")
+
+try:
+    data = pd.read_csv(file_name)
+    st.subheader("Transaction History")
+    st.dataframe(data)
+except:
+    st.write("No data yet.")
