@@ -59,7 +59,7 @@ if page == "Overview":
         if amount == 0:
             st.error("Please enter a valid amount.")
         else:
-            save_transaction(transaction_type, amount, category, description)
+            save_transaction(transaction_type, description, amount, category, )
             st.success("✅ Transaction added!")
 
             st.rerun()
