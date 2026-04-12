@@ -1,2 +1,5 @@
 Type,Amount,Category
 Income,538,Salary
+Income,539.04,Salary
+Expense,540.0,Education
+Expense,250.0,Subscriptions
