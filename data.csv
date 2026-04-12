@@ -1,4 +1,4 @@
-Type,Amount,Category
+Type,Amount,Category,Description
 Income,538,Salary
 Income,539.04,Salary
 Expense,540.0,Education
