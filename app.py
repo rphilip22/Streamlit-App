@@ -32,9 +32,9 @@ if page == "Overview":
 
     col1, col2, col3 = st.columns(3)
 
-    col1.metric("Income", f"${income:.2f}")
-    col2.metric("Expenses", f"${expenses:.2f}")
-    col3.metric("Balance", f"${balance:.2f}")
+    col1.metric("Income", f"${income:,.2f}")
+    col2.metric("Expenses", f"${expenses:,.2f}")
+    col3.metric("Balance", f"${balance:,.2f}")
 
     # Status message
     if balance > 0:
@@ -48,6 +48,7 @@ if page == "Overview":
 
     transaction_type = st.radio("Type:", ["Income", "Expense"])
     amount = st.number_input("Amount ($):", min_value=0.0, step=1.0)
+    description = st.text_input("Description (optional):")
 
     if transaction_type == "Income":
         category = st.selectbox("Category:", ["Salary", "Gift", "Other"])
@@ -60,6 +61,8 @@ if page == "Overview":
         else:
             save_transaction(transaction_type, amount, category)
             st.success("✅ Transaction added!")
+
+            st.rerun()
 
 # ====================================================================================================
 # PAGE 2: TRANSACTIONS
