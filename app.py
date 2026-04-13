@@ -113,4 +113,4 @@ elif page == "Insights":
             st.header("WORK IN PROGRESS...")
         
         else:
-            st.write("No expense data available.")
+            st.write("No expenses recorded yet.")
