@@ -83,10 +83,10 @@ elif page == "Analytics":
     if data.empty:
         st.write("No data available.")
     else:
-        # Create a copy of data
+        # Create a copy of data to avoid modifying the original DataFrame
         df = data.copy()
 
-        # Convert income to positive, expense to negative
+        # Convert income to positive and expenses to negative
         df["Signed Amount"] = df.apply(
             lambda row: row["Amount"] if row["Type"] == "Income" else -row["Amount"],
             axis=1
@@ -95,8 +95,9 @@ elif page == "Analytics":
         # Calculate running balance
         df["Balance"] = df["Signed Amount"].cumsum()
 
+        # Chart cash flow over time
         st.subheader("Cash Flow Over Time")
-
+        
         st.line_chart(df["Balance"])
         
         income = data[data["Type"] == "Income"]["Amount"].sum()
