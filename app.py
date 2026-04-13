@@ -9,7 +9,7 @@ st.markdown("<h1 style='text-align: center;'>Student Budget Tracker</h1>", unsaf
 # --- PAGE SELECTOR (TOP) ---
 page = st.radio(
     "",
-    ["Overview", "Transactions", "Analytics"],
+    ["Overview", "Transactions", "Analytics", "Insights"],
     horizontal=True
 )
 
