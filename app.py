@@ -104,11 +104,28 @@ elif page == "Analytics":
 # ====================================================================================================
 elif page == "Insights":
         expense_data = data[data["Type"] == "Expense"]
+        income = data[data["Type"] == "Income"]["Amount"].sum()
+        expenses = data[data["Type"] == "Expense"]["Amount"].sum()
+        balance = income - expenses
+
         if not expense_data.empty:
             most_common_category = expense_data.groupby("Category").size().idxmax() # Most common expense category
             st.write(f"Most common expense category: {most_common_category}")
+
             highest_expense_category = expense_data.groupby("Category")["Amount"].sum().idxmax() # Highest expense category by amount
             st.write(f"Highest expense category by amount: {highest_expense_category}")
+
+        #Show savings rate as a smart insight
+        if income > 0:
+            savings_rate = (balance / income) * 100
+
+            if savings_rate > 30:
+                st.success(f"Great job! You are saving {savings_rate:.1f}% of your income.")
+            elif savings_rate > 10:
+                st.warning(f"You are saving {savings_rate:.1f}%. Try to increase it.")
+            else:
+                st.error(f"Your savings rate is low ({savings_rate:.1f}%). Consider cutting expenses.")
+
 
             st.header("WORK IN PROGRESS...")
         
