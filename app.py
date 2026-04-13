@@ -110,10 +110,10 @@ elif page == "Insights":
 
         if not expense_data.empty:
             most_common_category = expense_data.groupby("Category").size().idxmax() # Most common expense category
-            st.write(f"Most common expense category: {most_common_category}")
+            st.write(f"Your most common expense category is: {most_common_category}")
 
             highest_expense_category = expense_data.groupby("Category")["Amount"].sum().idxmax() # Highest expense category by amount
-            st.write(f"Highest expense category by amount: {highest_expense_category}")
+            st.write(f"You spent the most on: {highest_expense_category}")
 
         #Show savings rate as a smart insight
         if income > 0:
