@@ -98,3 +98,17 @@ elif page == "Analytics":
             st.bar_chart(category_totals)
         else:
             st.write("No expense data yet.")
+
+# ====================================================================================================
+# PAGE 4: INSIGHTS
+# ====================================================================================================
+elif page == "Insights":
+        expense_data = data[data["Type"] == "Expense"]
+        if not expense_data.empty:
+            most_common_category = expense_data.groupby("Category").size().idxmax() # Most common expense category
+            st.write(f"Most common expense category: {most_common_category}")
+            highest_expense_category = expense_data.groupby("Category")["Amount"].sum().idxmax() # Highest expense category by amount
+            st.write(f"Highest expense category by amount: {highest_expense_category}")
+        
+        else:
+            st.write("No expense data available.")
