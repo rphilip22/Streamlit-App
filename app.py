@@ -109,6 +109,8 @@ elif page == "Insights":
             st.write(f"Most common expense category: {most_common_category}")
             highest_expense_category = expense_data.groupby("Category")["Amount"].sum().idxmax() # Highest expense category by amount
             st.write(f"Highest expense category by amount: {highest_expense_category}")
+
+            st.header("WORK IN PROGRESS...")
         
         else:
             st.write("No expense data available.")
