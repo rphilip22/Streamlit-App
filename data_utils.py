@@ -12,7 +12,8 @@ def load_data():
     return pd.read_csv(file_name)
 
 
-def save_transaction(transaction_type, description, amount, category):
-    with open(file_name, mode="a", newline="") as file:
+def save_transaction(transaction_type, amount, category, description):
+    # Append new transaction to CSV file
+    with open("data.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([transaction_type, description, amount, category])
