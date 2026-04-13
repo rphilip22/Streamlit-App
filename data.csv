@@ -1,2 +1,9 @@
 Type,Description,Amount,Category
 Income,Sep 2025 Salary,50.0,Salary
+Expense,Colony Grill,10.0,Food
+Expense,Stop n Shop,10.28,Food
+Income,,20.0,Gift
+Expense,Airport Uber,35.68,Transport
+Expense,Spotify,16,Subscriptions
+Income,Nov 2025 Salary,100.0,Salary
+Expense,Movie Night,12,Entertainment
