@@ -1,2 +1,9 @@
 Type,Description,Amount,Category
 Income,Aug 2025 Salary,200.0,Salary
+Expense,Colony Grill,20.0,Food
+Expense,Uber,10.0,Transport
+Income,Birthday Gift,20.0,Gift
+Expense,Spotify,6.0,Subscriptions
+Expense,Movie Night,12.0,Entertainment
+Expense,Stop n Shop,36.02,Food
+Income,Monthly Salary,200.0,Salary
