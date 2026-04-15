@@ -106,7 +106,7 @@ elif page == "Analytics":
         st.subheader("Income vs Expenses")
         st.bar_chart({"Income": income, "Expenses": expenses})
 
-        st.subheader("Expense Breakdown")
+        st.subheader("Expense Category Breakdown")
 
         expense_data = data[data["Type"] == "Expense"]
 
