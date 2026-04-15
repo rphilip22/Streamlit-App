@@ -133,20 +133,52 @@ elif page == "Insights":
             st.write(f"You spent the most on: {highest_expense_category}")
 
         #Show savings rate as a smart insight
+        # GIF URLs
+        good_gif = "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"
+        ok_gif = "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+        bad_gif = "https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif"
+
         if income > 0:
             savings_rate = (balance / income) * 100
 
+            # ✅ SUCCESS MESSAGE (FULL WIDTH)
             if savings_rate > 30:
                 st.success(f"Great job! You are saving {savings_rate:.1f}% of your income.")
+
+                col1, col2 = st.columns([1, 2])
+
+                with col1:
+                    st.image(good_gif, width=350)
+
+                with col2:
+                    st.markdown("## You're Basically a Financial Genius 😎")
+                    st.markdown("#### Keep doing whatever you're doing — this is elite behavior.")
+
             elif savings_rate > 10:
                 st.warning(f"You are saving {savings_rate:.1f}%. Try to increase it.")
+
+                col1, col2 = st.columns([1, 2])
+
+                with col1:
+                    st.image(ok_gif, width=350)
+
+                with col2:
+                    st.markdown("## 👀 Not Bad...")
+                    st.markdown("#### You're doing okay, but there’s room to improve your savings habits.")
+
             else:
                 st.error(f"Your savings rate is low ({savings_rate:.1f}%). Consider cutting expenses.")
 
+                col1, col2 = st.columns([1, 2])
 
-            st.header("SOMETHING NEW...COMING SOON!")
-        
+                with col1:
+                    st.image(bad_gif, width=350)
+
+                with col2:
+                    st.markdown("## Your Wallet Right Now 💀")
+                    st.markdown("#### This is getting out of hand. Time to rethink spending habits ASAP.")
+
         else:
-            st.write("No expenses recorded yet.")
+            st.write("No income data available yet.")
 
 # ====================================================================================================
