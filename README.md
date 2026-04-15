@@ -26,6 +26,7 @@ This app is intended for students interested in managing and obtaining better in
 1. Add dates to transactions
 2. Include option to add form of transaction and bank account used
 3. Sorting and filtering of data according to the user's requirements
-4. Shift data base from CSV to Supabase
-5. AI insights (using API)
-6. Better analytics and insights
+4. Add custom categories
+5. Shift data base from CSV to Supabase
+6. AI insights (using API)
+7. Better analytics and insights
