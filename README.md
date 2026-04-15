@@ -28,3 +28,4 @@ This app is intended for students interested in managing and obtaining better in
 3. Sorting and filtering of data according to the user's requirements
 4. Shift data base from CSV to Supabase
 5. AI insights (using API)
+6. Better analytics and insights
