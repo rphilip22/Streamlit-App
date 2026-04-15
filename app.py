@@ -152,7 +152,7 @@ elif page == "Insights":
 
                 with col2:
                     st.markdown("## You're Basically a Financial Genius 😎")
-                    st.markdown("#### Keep doing whatever you're doing — this is elite behavior.")
+                    st.markdown("#### Keep doing whatever you're doing - this is elite behavior.")
 
             elif savings_rate > 10:
                 st.warning(f"You are saving {savings_rate:.1f}%. Try to increase it.")
