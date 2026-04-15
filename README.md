@@ -21,6 +21,7 @@ This app is intended for students interested in managing and obtaining better in
 3. Show current balance
 4. Provide insights into their finances
 5. Save data to a file (CSV)
+6. Added GIF feedback just for fun!
 
 ## Planned Upgrades
 1. Add dates to transactions
