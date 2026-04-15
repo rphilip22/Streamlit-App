@@ -24,6 +24,7 @@ This app is intended for students interested in managing and obtaining better in
 
 ## Planned Upgrades
 1. Add dates to transactions
-2. Sorting and filtering of data according to the user's requirements
-3. Shift data base from CSV to Supabase
-4. AI insights (using API)
+2. Include option to add form of transaction and bank account used
+3. Sorting and filtering of data according to the user's requirements
+4. Shift data base from CSV to Supabase
+5. AI insights (using API)
