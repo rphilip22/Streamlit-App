@@ -181,4 +181,6 @@ elif page == "Insights":
         else:
             st.write("No income data available yet.")
 
+        st.header("SOMETHING NEW...COMING SOON! 🚀")
+
 # ====================================================================================================
