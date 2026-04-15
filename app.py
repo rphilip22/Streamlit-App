@@ -135,8 +135,8 @@ elif page == "Insights":
         #Show savings rate as a smart insight
         # GIF URLs
         good_gif = "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"
-        ok_gif = "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
-        bad_gif = "https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif"
+        ok_gif = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTE1cjk5dGczbWkwanhmbGplcnRlZGhoYjd3NmZ4b2Q2czZ0NnU1eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LFvWp14BLUiM8/giphy.gif"
+        bad_gif = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHRxZ2x0cGltMmQzOTJmYm91YzB0MHc1bTZ0ZjJoNmNlMzUxNDZ0YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Km2YiI2mzRKgw/giphy.gif"
 
         if income > 0:
             savings_rate = (balance / income) * 100
