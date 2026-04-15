@@ -144,7 +144,7 @@ elif page == "Insights":
                 st.error(f"Your savings rate is low ({savings_rate:.1f}%). Consider cutting expenses.")
 
 
-            st.header("WORK IN PROGRESS...")
+            st.header("SOMETHING NEW...COMING SOON!")
         
         else:
             st.write("No expenses recorded yet.")
